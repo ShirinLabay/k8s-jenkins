@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yolo5
+  labels:
+    app: yolo5
+spec:
+  selector:
+    matchLabels:
+      app: yolo5
+  template:
+    metadata:
+        labels:
+          app: yolo5
+    spec:
+      containers:
+      - name: yolo5
+        image: http://933060838752.dkr.ecr.eu-central-1.amazonaws.com/labay-yolo5
+        env:
+          - name: BUCKET_NAME
+            value: "shirinlabay-bucket"
+          - name: TELEGRAM_APP_URL
+            value: "https://poly-service:8443"
+          - name: SQS_QUEUE_NAME
+            value: "shirin-aws-queue"
+        resources:
+          requests:
+            cpu: 70m
+            memory: 70Mi
+          limits:
+            cpu: 5
+            memory: 5Gi

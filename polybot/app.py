@@ -15,7 +15,8 @@ secret_name = 'telegram_secrets'
 region_name = 'eu-central-1'
 
 # load TELEGRAM_TOKEN value from Secret Manager
-secrets_client = boto3.client('secretsmanager', region_name=region_name)
+session = boto3.session.Session()
+secrets_client = session.client('secretsmanager', region_name=region_name)
 secret_response = secrets_client.get_secret_value(SecretId=secret_name)
 secret_data = json.loads(secret_response['SecretString'])
 TELEGRAM_TOKEN = secret_data['TELEGRAM_TOKEN']
@@ -31,7 +32,6 @@ def index():
 @app.route(f'/{TELEGRAM_TOKEN}/', methods=['POST'])
 def webhook():
     req = request.get_json()
-    chat_id = req['message']['chat']['id']
     bot.handle_message(req['message'])
     return 'Ok'
 
