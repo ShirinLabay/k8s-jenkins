@@ -15,6 +15,7 @@ pipeline {
                 docker push $ECR_URL/$IMAGE_NAME:$BUILD_NUMBER
                 '''
             }
+
         }
         stage('Trigger Deploy') {
             steps {
