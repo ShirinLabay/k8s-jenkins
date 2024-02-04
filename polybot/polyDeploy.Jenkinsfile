@@ -7,7 +7,7 @@ pipeline {
         stage('kubeconfig ') {
             steps {
                 sh '''
-                    aws eks --region eu-central-1 update-kubeconfig --name k8s-main
+                    aws eks --region us-east-1 update-kubeconfig --name k8s-main
                     kubectl config set-context --current --namespace=labay-bot
                 '''
             }
