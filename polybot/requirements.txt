@@ -6,3 +6,4 @@ matplotlib
 boto3
 deep_translator
 pandas
+pyarrow

@@ -4,6 +4,7 @@ import os
 from bot import ObjectDetectionBot
 import boto3
 import json
+import pyarrow
 import pandas as pd
 from telebot.types import InputFile
 from deep_translator import GoogleTranslator

@@ -1,3 +1,4 @@
 persistence:
   enabled: true
+  existingClaim: grafana-pv-claim
   size: 2Gi

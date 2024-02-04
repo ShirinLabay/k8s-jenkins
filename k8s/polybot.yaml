@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: polybot
-  namespace: labay-bot
   labels:
     app: polybot
 spec:
@@ -17,7 +16,7 @@ spec:
     spec:
       containers:
       - name: polybot
-        image: http://933060838752.dkr.ecr.eu-central-1.amazonaws.com/labay-polybot
+        image: 933060838752.dkr.ecr.eu-central-1.amazonaws.com/labay-polybot:latest
         env:
           - name: BUCKET_NAME
             value: "shirinlabay-bucket"

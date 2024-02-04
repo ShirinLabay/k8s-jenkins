@@ -15,12 +15,12 @@ spec:
     spec:
       containers:
       - name: yolo5
-        image: http://933060838752.dkr.ecr.eu-central-1.amazonaws.com/labay-yolo5
+        image: 933060838752.dkr.ecr.eu-central-1.amazonaws.com/labay-yolo5:latest
         env:
           - name: BUCKET_NAME
             value: "shirinlabay-bucket"
           - name: TELEGRAM_APP_URL
-            value: "https://poly-service:8443"
+            value: "http://poly-service.labay-bot:8443"
           - name: SQS_QUEUE_NAME
             value: "shirin-aws-queue"
         resources:

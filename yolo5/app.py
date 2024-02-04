@@ -117,7 +117,7 @@ def consume():
                 # Perform a GET request to Polybot to `/results` endpoint
                 url = f"{telegram_url}/results"
                 params = {"predictionId": prediction_id}
-                response = requests.get(url, params=params, verify=False)
+                response = requests.get(url, params=params)
                 logger.info(f'get request successfully sent to polybot')
                 # Delete the message from the queue as the job is considered as DONE
                 sqs_client.delete_message(QueueUrl=queue_name, ReceiptHandle=receipt_handle)
