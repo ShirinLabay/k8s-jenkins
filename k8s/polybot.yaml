@@ -5,7 +5,7 @@ metadata:
   labels:
     app: polybot
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: polybot
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: polybot
-        image: 933060838752.dkr.ecr.eu-central-1.amazonaws.com/labay-polybot:14
+        image: 933060838752.dkr.ecr.eu-central-1.amazonaws.com/labay-polybot:latest
         env:
           - name: BUCKET_NAME
             value: "shirinlabay-bucket"
@@ -26,21 +26,13 @@ spec:
             value: "shirin-aws-queue"
         resources:
           requests:
-            cpu: "70m"
-            memory: "70Mi"
+            cpu: 120m
+            memory: 120Mi
           limits:
-            cpu: "70m"
-            memory: "70Mi"
-        livenessProbe:
-          initialDelaySeconds: 10
-          httpGet:
-            path: "/"
-            port: 8443
-        readinessProbe:
-          initialDelaySeconds: 10
-          httpGet:
-            path: "/"
-            port: 8443
+            cpu: 120m
+            memory: 120Mi
+
+
 
 ---
 apiVersion: v1
